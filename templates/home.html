@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-         <link rel="icon" type="image/png" href="{{url_for('static', filename='images/icons/favicon_new.ico')}}">
+         <link rel="icon" type="image/png" href="{{url_for('static', filename='images/login1.png')}}">
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-   <title>Medical Condition Predictor and Drug Recommender (MCPDR)</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
 
-	<style>
+   <title>Patients' condition classification and drug recommendation based on drug review</title>
+
+<!---<style>
         .highlight {background-color: #FFFF00}
 
         div {
   font-size: 20px;
 }
-    </style>
+    </style> -->
     <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
-<!--===============================================================================================-->	
-	
+
     <link rel="icon" type="image/png" href="{{url_for('static', filename='images/icons/favicon_new.ico')}}">
 
-   <style>
+   
+<!--   <style>
         .form-actions {
             margin: 0;
             background-color: transparent;
@@ -171,13 +173,13 @@ li.horizontal-style a{
 }
 
 
-</style>
+</style>   -->
     <script src="https://kit.fontawesome.com/a658a7b479.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-custom">
-        <a class="navbar-brand" href="#">MCPDR</a>
+        <a class="navbar-brand" href="#">Patients' condition classification and drug recommendation based on drug review</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -200,6 +202,19 @@ li.horizontal-style a{
             </ul>
         </div>
     </nav>
+
+
+
+    <div class="container" >
+
+
+    <img src="{{url_for('static', filename='images/ppt.gif')}}" width="100%">
+
+
+</div>
+
+
+
     <br>
    
 
@@ -211,7 +226,7 @@ li.horizontal-style a{
 <form class="container" method="POST" action="/predict" enctype = "multipart/form-data">
 
     <div class="form-group">
-        <label for="exampleFormControlInput1" class="font-weight-bold">Enter Medical issue for Getting Drug Recommendation : </label>
+        <label for="exampleFormControlInput1" class="font-weight-bold">Enter the Drug review ( Also, enter some of your symptoms and issues )</label>
 
         <textarea rows="5" cols="5" required="true" name="rawtext" class="form-control">
 		</textarea> 

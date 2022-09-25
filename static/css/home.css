@@ -1,0 +1,170 @@
+.highlight {background-color: #FFFF00}
+
+div {
+font-size: 20px;
+}
+
+.form-actions {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar-custom {
+background-color: #00008B;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+color: #ffffff;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+color: #ffffff;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+
+color: #ffff00;
+}
+
+.table {
+margin: auto;
+width: 50% !important; 
+}
+
+#rcorners1 {
+border-radius: 10px;
+background : #7A82FE;
+padding: 10px; 
+display:inline-block;
+height: 2;
+color:white;
+ 
+}
+
+#rcorners2 {
+
+
+padding: 10px; 
+display:inline-block;
+height: 2;
+
+  
+}
+
+p.round1 {
+
+border-radius: 3px;
+
+padding:15px;
+
+text-align:center;
+color:black;
+background:#fcc5ff;
+}
+
+p.round2 {
+
+border-radius: 3px;
+
+padding:10px;
+
+text-align:center;
+color:black;
+background:#FC8F7D;
+}
+p.round3 {
+
+border-radius: 3px;
+
+padding:10px;
+
+text-align:center;
+color:black;
+background:#2EEAFE;
+}
+
+
+#div_top_hypers {
+background-color:white;
+display:inline;      
+}
+#ul_top_hypers {
+
+min-width: 696px;
+list-style: none;
+padding-top: 20px;
+}
+
+#ul_top_hypers li{
+
+display: inline;
+}
+
+.table {
+display: table;   /* Allow the centering to work */
+margin: 0 auto;
+}
+
+table, th
+    {
+        
+        padding: 5px;
+        font-family:Verdana;
+        font-size:20px;
+        text-align: left;
+        font-weight:normal;
+    }
+
+ul.horizontal-style {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: white;
+}
+
+li.horizontal-style {
+float: center;
+}
+
+li.new-style {
+float: right;
+}
+
+
+
+li.horizontal-style a{
+display: block;
+color: black;
+
+text-align: center;
+font-weight: bold;
+text-decoration: underline;
+}
+
+#new {
+    border-radius: 3px;
+
+padding:15px;
+
+text-align:center;
+color:black;
+background:#c5e5ff;
+}
+
+#new1 {
+    border-radius: 3px;
+
+padding:15px;
+
+text-align:center;
+color:black;
+background:#c5ffd8;
+}

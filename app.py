@@ -13,12 +13,14 @@ HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; borde
 app = Flask(__name__)
 
 app.secret_key=os.urandom(24)
+
+
 # Model saved with Keras model.save()
 MODEL_PATH = 'model/passmodel.pkl'
 
 TOKENIZER_PATH ='model/tfidfvectorizer.pkl'
 
-DATA_PATH ='data/drugsComTrain.csv'
+DATA_PATH ='drugs/drugsComTrain.csv'
 
 # loading vectorizer
 vectorizer = joblib.load(TOKENIZER_PATH)
@@ -84,7 +86,6 @@ def login_validation():
 			
 			
 
-
 @app.route('/predict',methods=["GET","POST"])
 def predict():
 	if request.method == 'POST':
@@ -131,10 +132,6 @@ def top_drugs_extractor(condition,df):
 
 
 
-
-
-
-
 if __name__ == "__main__":
 	
-	app.run(debug=True, host="localhost", port=8080)
+	app.run(debug=True, host="localhost", port=8000)
