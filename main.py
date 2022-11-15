@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session
 import os
 import joblib
 import pandas as pd
@@ -9,7 +9,6 @@ from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
 from sklearn import metrics
 import nltk
-import speech_recognition as sr
 
 HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; border-radius: 0.25rem; padding: 1rem">{}</div>"""
 
@@ -96,15 +95,15 @@ def predict():
 			sid = SentimentIntensityAnalyzer()
 			score = ((sid.polarity_scores(str(clean_text))))['compound']
 			if(score > 0):
-				labeli = 'This sentence is positive'
+				label = 'This sentence is positive'
 			elif(score == 0):
-				labeli = 'This sentence is neutral'
+				label = 'This sentence is neutral'
 			else:
-				labeli = 'This sentence is negative'
+				label = 'This sentence is negative'
             
    
 
-			return render_template('predict.html', rawtext=raw_text, result=predicted_cond, top_drugs=top_drugs, variable=labeli)
+			return render_template('predict.html', rawtext=raw_text, result=predicted_cond, top_drugs=top_drugs, variable=label)
 		else:
 			 raw_text = "There is no text to select"
 
@@ -131,9 +130,30 @@ def top_drugs_extractor(condition,df):
 
 
 
+if __name__ == "__main__":
+	
+	app.run(debug=True, host="localhost", port=8000)
 
 
-####SPEECH TO TEXT
+
+
+
+
+
+
+
+
+import speech_recognition as sr
+from flask import logging, Flask, render_template, request, flash
+
+
+app = Flask(__name__)
+app.secret_key = "AnanyaGhosh"
+
+@app.route('/')
+def index():
+    flash(" Welcome to Vatsal's site")
+    return render_template('index.html')
 
 @app.route('/audio_to_text/')
 def audio_to_text():
@@ -143,7 +163,6 @@ def audio_to_text():
 @app.route('/audio', methods=['POST'])
 def audio():
     r = sr.Recognizer()
-    
     with open('upload/audio.wav', 'wb') as f:
         f.write(request.data)
   
@@ -158,43 +177,18 @@ def audio():
         except:
             return_text = " Sorry!!!! Voice not Detected "
         
-        return_text_return = str(return_text)
-        if return_text_return != "":
-            clean_text_return = cleanText(return_text_return)
-            clean_lst_return = [clean_text_return]
-            tfidf_vect_return = vectorizer.transform(clean_lst_return)
-            prediction_return = model.predict(tfidf_vect_return)
-            predicted_cond_return = prediction_return[0]
-            df = pd.read_csv(DATA_PATH)
-            top_drugs = top_drugs_extractor(predicted_cond_return, df)
-            nltk.download('vader_lexicon')
-            from nltk.sentiment.vader import SentimentIntensityAnalyzer
-            sid = SentimentIntensityAnalyzer()
-            score = ((sid.polarity_scores(str(clean_text_return))))['compound']
-            if(score > 0):
-                labelireturn = 'This sentence is positive'
-            elif(score == 0):
-                labelireturn = 'This sentence is neutral'
-            else:
-                labelireturn = 'This sentence is negative'
-            
-            return render_template('audio_to_text.html', rawtextreturn=return_text_return, resultreturn=predicted_cond_return, top_drugsreturn=top_drugs, variablereturn=labelireturn)
-        else:
-            return_text_return = "There is no text to select"
-
-
-
-    
-
-
-
-
-
-
-
-
+    return str(return_text)
 
 
 if __name__ == "__main__":
-	
-	app.run(debug=True, host="localhost", port=8000)
+    app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
