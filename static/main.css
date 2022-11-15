@@ -1,0 +1,72 @@
+#loader{  
+    position:relative;
+    margin:0 auto;
+    clear:left;
+    height:auto;
+    z-index: 0;
+    text-align:center;
+}  
+
+
+.glow {
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    
+  }
+  
+  
+
+
+.registerbtn {
+  border-radius: 25px;
+  position:relative;
+  color: white;
+  padding: 20px 20px;
+  margin: 0.9% 0;
+  border: none;
+  cursor: pointer;
+  font-size: 150%;
+  width: 40%;
+  opacity: 0.9;
+}
+.button1{
+    background-color: green;
+    /* margin-left: 3%; */
+}
+.button2{
+	background-color: blue;
+}
+.button3{
+	background-color: red;
+}
+.button4{
+	background-color:cornflowerblue;
+}
+.button5{
+	background-color:blueviolet;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.registerbtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.registerbtn:hover span {
+  padding-right: 25px;
+}
+
+.registerbtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
